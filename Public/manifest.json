@@ -6,11 +6,13 @@
       "src": "Mʀ. Devɪl logo.png",
       "type": "image/png",
       "sizes": "192x192"
+      "purpose": "any"
     },
     {
       "src": "Mʀ. Devɪl logo.png",
       "type": "image/png",
       "sizes": "512x512"
+      "purpose": "any"
     }
   ],
   "start_url": "/",
