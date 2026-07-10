@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instant Secure Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- রুম জয়েন করার স্ক্রিন -->
+    <div id="login-container" class="card">
+        <h2>Secure P2P Chat</h2>
+        <p>রেজিস্ট্রেশন ছাড়া নিরাপদ চ্যাট। যেকোনো গোপন নম্বর বা টেক্সট ব্যবহার করুন।</p>
+        <input type="text" id="room-input" placeholder="Enter Custom Room ID / IP...">
+        <button onclick="startChat()" class="card-btn">Start Chat</button>
+    </div>
+
+    <!-- চ্যাট করার স্ক্রিন -->
+    <div id="chat-container" class="chat-app hidden">
+        
+        <!-- হেডার: শুধু ব্যাক বাটন আর আইপি নম্বর থাকবে -->
+        <div class="chat-header">
+            <div class="header-left">
+                <button onclick="leaveChat()" class="back-btn"><i class="fas fa-arrow-left"></i></button>
+                <div class="header-profile">
+                    <span id="room-display"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- চ্যাট বডি -->
+        <div id="chat-box" class="chat-body">
+            <div id="connection-status" class="status">Waiting for other party to join...</div>
+        </div>
+
+        <!-- ফুটার: ইনপুট এরিয়া এবং পেপার-প্লেন বাটন -->
+        <div class="chat-footer">
+            <div class="chat-input-area">
+                <input type="text" id="message-input" placeholder="Message..." onkeypress="handleKeyPress(event)">
+            </div>
+            <button onclick="sendMessage()" class="send-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
